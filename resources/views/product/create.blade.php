@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Name</label>
+                                    <label class="col-sm-3 col-form-label">Stock Date</label>
                                     <div class="col-sm-9">
                                         <input type="date" name="stock_date" value="{{old('stock_date')}}" class="form-control">
                                     </div>

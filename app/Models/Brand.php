@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\General;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Brand extends Model
 {
 
-    use HasFactory,SoftDeletes;
+    use HasFactory,SoftDeletes,General;
     protected $fillable = ['name'];
 
     protected $hidden = ['created_by','updated_by','deleted_by','created_at','updated_at','deleted_at' , 'password', 'remember_token','email_verified_at'];

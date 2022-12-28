@@ -19,7 +19,7 @@ class BranchController extends Controller
     {
         $branches = Branch::query()->latest();
         if ($request->name) {
-            $branches = $branches->where('name','LIKE','%'.$request->name.'%');
+            $branches = $branches->like('name',$request->name);
         }
         $totalBranches = $branches->count();
         $branches = $branches->with('status')->paginate(10);

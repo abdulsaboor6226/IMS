@@ -30,6 +30,8 @@ class CreateProductsTable extends Migration
             $table->softDeletes();
             $table->foreign('status_id')->references('id')->on('dictionaries')->onDelete('cascade');
             $table->foreign('product_type_id_fk')->references('id')->on('product_types')->onDelete('cascade');
+            $table->foreign('vendor_id_fk')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('brand_id_fk')->references('id')->on('brands')->onDelete('cascade');
         });
     }
 

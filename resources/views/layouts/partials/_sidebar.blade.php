@@ -19,14 +19,14 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#branch" aria-expanded="false" aria-controls="branch">
-                <i class="mdi mdi-source-branch menu-icon"></i>
-                <span class="menu-title">Branch</span>
+            <a class="nav-link" data-toggle="collapse" href="#brand" aria-expanded="false" aria-controls="brand">
+                <i class="fa fa-certificate menu-icon"></i>
+                <span class="menu-title">Brand</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="branch">
+            <div class="collapse" id="brand">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{route('branch.index')}}"> Listing </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('brand.index')}}"> Listing </a></li>
                 </ul>
             </div>
         </li>
@@ -55,14 +55,26 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#brand" aria-expanded="false" aria-controls="brand">
-                <i class="fa fa-certificate menu-icon"></i>
-                <span class="menu-title">Brand</span>
+            <a class="nav-link" data-toggle="collapse" href="#stock-out" aria-expanded="false" aria-controls="stock-out">
+                <i class="mdi mdi-logout-variant menu-icon"></i>
+                <span class="menu-title">Stock Out</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="brand">
+            <div class="collapse" id="stock-out">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{route('brand.index')}}"> Listing </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('stock-out.index')}}"> Listing </a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#branch" aria-expanded="false" aria-controls="branch">
+                <i class="mdi mdi-source-branch menu-icon"></i>
+                <span class="menu-title">Branch</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="branch">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{{route('branch.index')}}"> Listing </a></li>
                 </ul>
             </div>
         </li>

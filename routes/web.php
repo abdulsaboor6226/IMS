@@ -28,5 +28,6 @@ Route::middleware('auth:web')->group(function (){
     Route::resource('brand',BrandController::class);
     Route::resource('product',ProductController::class);
     Route::resource('product-type',ProductTypeController::class);
+    Route::resource('stock-out',StockOutController::class);
 });
 

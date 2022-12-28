@@ -18,7 +18,7 @@ class ProductTypeController extends Controller
     {
         $productTypes = ProductType::query()->latest();
         if ($request->name) {
-            $productTypes = $productTypes->where('name','LIKE','%'.$request->name.'%');
+            $productTypes = $productTypes->like('name',$request->name);
         }
         $totalProductTypes = $productTypes->count();
         $productTypes = $productTypes->with('status')->paginate(10);

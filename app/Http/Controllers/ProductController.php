@@ -20,12 +20,27 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = Product::query()->latest();
+        if ($request->stock_date) {
+            $products = $products->like('stock_date',$request->stock_date);
+        }
         if ($request->name) {
-            $products = $products->where('name','LIKE','%'.$request->name.'%');
+            $products = $products->like('name',$request->name);
+        }
+        if ($request->product_type_id_fk) {
+            $products = $products->like('product_type_id_fk',$request->product_type_id_fk);
+        }
+        if ($request->vendor_id_fk) {
+            $products = $products->like('vendor_id_fk',$request->vendor_id_fk);
+        }
+        if ($request->brand_id_fk) {
+            $products = $products->like('brand_id_fk',$request->brand_id_fk);
         }
         $totalProducts = $products->count();
         $products = $products->with('status','vendor','brand','productType')->paginate(10);
-        return view('product.index',compact('products','totalProducts'));
+        $vendors = User::role('vendor')->get();
+        $brands = Brand::pluck('name','id');
+        $productTypes = ProductType::pluck('name','id');
+        return view('product.index',compact('products','totalProducts','vendors','brands','productTypes'));
     }
 
     /**

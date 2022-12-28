@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Branch extends Model
+class StockOut extends Model
 {
     use HasFactory,SoftDeletes,General;
-    protected $fillable = ['name'];
+    protected $fillable = ['diary_no','date','branch_id_fk','applicant_name','forwarded_by','received_by','received_date','approved_by','approved_date','product_id_fk','brand_id_fk','stock_out_qty'];
 
     protected $hidden = ['created_by','updated_by','deleted_by','created_at','updated_at','deleted_at' , 'password', 'remember_token','email_verified_at'];
 
@@ -45,8 +45,13 @@ class Branch extends Model
         }
     }
 
-    public function status()
-    {
-        return $this->belongsTo(Dictionary::class,'status_id')->withDefault(dictionaryDefault());
+    public function brand(){
+        return $this->hasOne(Brand::class,'id');
+    }
+    public function branch(){
+        return $this->hasOne(Branch::class,'id');
+    }
+    public function product(){
+       return $this->hasOne(Product::class,'id');
     }
 }

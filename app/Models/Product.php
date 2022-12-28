@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\General;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory,SoftDeletes,General;
     protected $fillable = ['name','stock_date','product_type_id_fk','vendor_id_fk','brand_id_fk','unit_price','unit_quantity','status_id'];
 
     protected $hidden = ['created_by','updated_by','deleted_by','created_at','updated_at','deleted_at' , 'password', 'remember_token','email_verified_at'];

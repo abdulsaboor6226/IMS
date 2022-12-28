@@ -19,7 +19,7 @@ class BrandController extends Controller
     {
         $brands = Brand::query()->latest();
         if ($request->name) {
-            $brands = $brands->where('name','LIKE','%'.$request->name.'%');
+            $brands = $brands->like('name',$request->name);
         }
         $totalBrands = $brands->count();
         $brands = $brands->with('status')->paginate(10);
