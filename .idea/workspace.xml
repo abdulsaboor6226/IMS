@@ -5,23 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e89ee37-5ab7-4b9a-9cc7-e7047f4a3c9a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/stockOut/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/stockOut/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/stockOut/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/stockOut/export/stock-out-export.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/IMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/IMS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BrandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductTypeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VehicleController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Branch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Brand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ProductType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_12_26_092018_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_12_26_092018_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockOutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockOutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/branch/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/branch/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/branch/pending.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/brand/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/brand/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/brand/pending.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/pending.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productType/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productType/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/stockOut/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stockOut/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +193,14 @@
       <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/vendor/nette/utils" />
       <path value="$PROJECT_DIR$/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-query-builder" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
     </include_path>
   </component>
   <component name="ProjectId" id="2ET2j5K72fzmR5mjck62GrKy8mq" />
@@ -233,7 +242,7 @@
       <workItem from="1662605397263" duration="12557000" />
       <workItem from="1671714359114" duration="467000" />
       <workItem from="1671717897440" duration="46801000" />
-      <workItem from="1672153010857" duration="14515000" />
+      <workItem from="1672153010857" duration="35787000" />
     </task>
     <servers />
   </component>

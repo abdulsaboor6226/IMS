@@ -10,19 +10,43 @@
             </div>
         </div>
     @endcan
-        <div class="col-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Filters</h4>
-                    <form class="form-inline filter-form" action="{{route('brand.index')}}" method="GET">
-                        <label class="sr-only" for="inlineFormInputName2">Name</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" name="name" value="{{request()->input('name')}}" id="inlineFormInputName2" placeholder="Name">
-                    </form>
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="">
+                        <h4 class="card-title">Filters</h4>
+                    </div>
+                    <div class="">
+                        <span class="badge">
+                            <a data-toggle="collapse" href="#brand" class="text-primary" aria-expanded="false" aria-controls="filter">
+                                <i class="fas fa-filter"></i>
+                            </a>
+                        </span>
+                    </div>
                 </div>
+                <form action="{{ route('brand.index') }}" method="GET">
+                    <div class="collapse {{ request()->all() ? 'show' : ' ' }}" id="brand">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="text" class="form-control mb-2 mr-sm-2" name="name"
+                                       value="{{ request()->input('name') }}" id="Name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mt-2">
+                            <button class="badge badge-outline-primary mr-2" type="submit"><i
+                                    class="icon-search"></i></button>
+                            <a class="badge badge-outline-primary" href="{{ route('brand.index') }}"><i
+                                    class="mdi mdi-flask-empty-outline"></i></a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 
-        <div class="col-12 grid-margin stretch-card">
+
+    <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">

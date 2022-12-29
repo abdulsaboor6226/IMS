@@ -9,17 +9,69 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Filters</h4>
-                    <form class="form-inline filter-form" action="{{route('product.index')}}" method="GET">
-                        <label class="sr-only" for="inlineFormInputName2">Name</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" name="name" value="{{request()->input('name')}}" id="inlineFormInputName2" placeholder="Name">
+                    <div class="d-flex justify-content-between">
+                        <div class="">
+                            <h4 class="card-title">Filters</h4>
+                        </div>
+                        <div class="">
+                        <span class="badge">
+                            <a data-toggle="collapse" href="#product" class="text-primary" aria-expanded="false" aria-controls="filter">
+                                <i class="fas fa-filter"></i>
+                            </a>
+                        </span>
+                        </div>
+                    </div>
+                    <form action="{{ route('product.index') }}" method="GET">
+                        <div class="collapse {{ request()->all() ? 'show' : ' ' }}" id="product">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <input type="date" class="form-control mb-2 mr-sm-2" name="stock_date"
+                                           value="{{ request()->input('stock_date') }}" id="Name">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control mb-2 mr-sm-2" name="name"
+                                           value="{{ request()->input('name') }}" id="name" placeholder="Product Name">
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control mb-2 mr-sm-2" required name="product_type_id_fk">
+                                        <option readonly="">Select Product Type Option</option>
+                                        @foreach($productTypes as $key =>$value)
+                                            <option value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control mb-2 mr-sm-2" required name="brand_type_id_fk">
+                                        <option readonly="">Select Brand Option</option>
+                                        @foreach($brands as $key =>$value)
+                                            <option value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control mb-2 mr-sm-2" required name="vendor_type_id_fk">
+                                        <option readonly="">Select Vendor Option</option>
+                                        @foreach($vendors as $key =>$value)
+                                            <option value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <button class="badge badge-outline-primary mr-2" type="submit"><i
+                                        class="icon-search"></i></button>
+                                <a class="badge badge-outline-primary" href="{{ route('product.index') }}"><i
+                                        class="mdi mdi-flask-empty-outline"></i></a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
+
 
         <div class="col-12 grid-margin stretch-card">
             <div class="card">

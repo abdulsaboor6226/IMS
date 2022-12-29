@@ -17,6 +17,7 @@ class BrandController extends Controller
      */
     public function index(Request $request)
     {
+//        dd($request->all());
         $brands = Brand::query()->latest();
         if ($request->name) {
             $brands = $brands->like('name',$request->name);

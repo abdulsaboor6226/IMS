@@ -32,6 +32,10 @@
             image.src = "{{asset('img/demo.png')}}";
             return true;
         }
+        function exportStock(){
+            debugger
+            document.getElementById('export').value = true;
+        }
     </script>
 </head>
 <body>

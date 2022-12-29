@@ -7,18 +7,92 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Filters</h4>
-                    <form class="form-inline filter-form" action="{{route('stock-out.index')}}" method="GET">
-                        <label class="sr-only" for="inlineFormInputName2">Name</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" name="name" value="{{request()->input('name')}}" id="inlineFormInputName2" placeholder="Name">
+                    <div class="d-flex justify-content-between">
+                        <div class="">
+                            <h4 class="card-title">Filters</h4>
+                        </div>
+                        <div class="">
+                        <span class="badge">
+                            <a data-toggle="collapse" href="#stockOut" class="text-primary" aria-expanded="false" aria-controls="filter">
+                                <i class="fas fa-filter"></i>
+                            </a>
+                        </span>
+                        </div>
+                    </div>
+                    <form action="{{ route('stock-out.index') }}" method="GET">
+                        <div class="collapse {{ request()->all() ? 'show' : ' ' }}" id="stockOut">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <input type="number" class="form-control mb-2 mr-sm-2" name="diary_no"
+                                           value="{{ request()->input('diary_no') }}" id="diary_no" placeholder="Diary No">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="date" class="form-control mb-2 mr-sm-2" name="date"
+                                           value="{{ request()->input('date') }}" id="Date" placeholder="Date">
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control mr-sm-2 js-example-basic-single" name="branch_id_fk">
+                                        <option value=""> Select Branch Option &nbsp &nbsp</option>
+                                        @foreach($branches as $key =>$value)
+                                            <option {{ request()->input('branch_id_fk') == $key ? 'Selected' : '' }} value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control mb-2 mr-sm-2" name="applicant_name"
+                                           value="{{ request()->input('applicant_name') }}" id="applicant_name" placeholder="Applicant Name">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control mb-2 mr-sm-2" name="forwarded_by"
+                                           value="{{ request()->input('forwarded_by') }}" id="forwarded_by" placeholder="Forwarded By">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control mb-2 mr-sm-2" name="received_by"
+                                           value="{{ request()->input('received_by') }}" id="received_by" placeholder="Received By">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="date" class="form-control mb-2 mr-sm-2" name="received_date"
+                                           value="{{ request()->input('received_date') }}" id="received_date" placeholder="Received Date">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control mb-2 mr-sm-2" name="approved_by"
+                                           value="{{ request()->input('approved_by') }}" id="approved_by" placeholder="Approved By">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="date" class="form-control mb-2 mr-sm-2" name="approved_date"
+                                           value="{{ request()->input('approved_date') }}" id="approved_date" placeholder="Approved Date">
+                                </div>
+                                <input type="hidden" id="export" value="" name="stockOutFilterApply">
+                                <div class="col-md-3">
+                                    <select class="form-control mr-sm-2 js-example-basic-single" name="product_id_fk">
+                                        <option value=""> Select Product Type &nbsp &nbsp &nbsp</option>
+                                        @foreach($productTypes as $key =>$value)
+                                            <option {{ request()->input('product_id_fk') == $key ? 'Selected' : '' }} value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control mr-sm-2 js-example-basic-single" name="brand_id_fk">
+                                        <option value=""> Select Brand Option &nbsp &nbsp &nbsp </option>
+                                        @foreach($brands as $key =>$value)
+                                            <option {{ request()->input('brand_id_fk') == $key ? 'Selected' : '' }} value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <button class="btn btn-primary mr-2" type="submit"><i class="icon-search"></i>Search</button>
+                                <a class="btn btn-primary mr-2" href="{{ route('stock-out.index') }}"><i class="mdi mdi-flask-empty-outline"></i>Reset</a>
+                                <button class="btn btn-primary mr-2" onClick="exportStock()" type="submit"><i class="mdi mdi-file-excel"></i> Export Stock Out</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
-
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">

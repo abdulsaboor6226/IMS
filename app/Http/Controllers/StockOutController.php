@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StockOutExport;
 use App\Models\Branch;
 use App\Models\Brand;
 use App\Models\Dictionary;
@@ -11,13 +12,14 @@ use App\Models\StockOut;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StockOutController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function index(Request $request)
     {
@@ -60,11 +62,17 @@ class StockOutController extends Controller
         }
         $totalStockOuts = $stockOuts->count();
         $stockOuts = $stockOuts->with('branch','brand','product')->paginate(10);
-        $brands = Brand::pluck('name','id');
-        $productTypes = ProductType::pluck('name','id');
-        $products = Product::pluck('name','id');
-        $branches = Branch::pluck('name','id');
-        return view('stockOut.index',compact('stockOuts','totalStockOuts','branches','products','brands','productTypes'));
+        if ($request->stockOutFilterApply){
+            return Excel::download(new StockOutExport($stockOuts), 'stockOut.xlsx');
+
+        }
+        else{
+            $brands = Brand::pluck('name','id');
+            $productTypes = ProductType::pluck('name','id');
+            $products = Product::pluck('name','id');
+            $branches = Branch::pluck('name','id');
+            return view('stockOut.index',compact('stockOuts','totalStockOuts','branches','products','brands','productTypes'));
+        }
     }
 
     /**
